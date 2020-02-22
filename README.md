@@ -18,11 +18,11 @@ As I will contact Anomareh (author of mynt), maybe this repo will die and the of
 
 ### Install
 
-From PyPI:
+From PyPI: (installs the old version of mynt for now)
 
-    $ pip install mynt
+    $ pip install mynt3
 
-Latest trunk:
+Latest version:
 
     $ pip install git+https://github.com/Mindiell/mynt3.git
 

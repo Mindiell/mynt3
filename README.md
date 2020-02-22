@@ -50,6 +50,24 @@ After installing mynt head on over and give the [quickstart][quickstart] page an
 If you run into any issues or have any questions, either open an [issue][issues] or hop in #mynt on irc.freenode.net.
 
 
+### Tests
+
+Some tests have been added. To launch them, simply use :
+
+    $ python -m pytest
+
+To get coverage:
+
+    $ coverage run --source=mynt/ -m pytest
+
+To make the html report:
+
+    $ coverage report
+
+Then you can open *index.html* in *htmlcov/* directory in your browser.
+
+Actual coverage is 4%.
+
 [docs]: http://mynt.uhnomoli.com/
 [docutils]: http://docutils.sourceforge.net/
 [hoep]: https://github.com/Anomareh/Hoep

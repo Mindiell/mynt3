@@ -4,3 +4,5 @@ mynt.egg-info/
 __pycache__/
 *.sublime-project
 *.sublime-workspace
+.coverage
+htmlcov/

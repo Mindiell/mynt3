@@ -179,6 +179,25 @@ class TestGetLogger():
 
 
 class TestTimer():
+    def test_no_queue(self):
+        with pytest.raises(IndexError):
+            utils.Timer.stop()
+
+    def test_queue(self):
+        assert len(utils.Timer._start) == 0
+        utils.Timer.start()
+        assert len(utils.Timer._start) == 1
+        utils.Timer.start()
+        assert len(utils.Timer._start) == 2
+        utils.Timer.start()
+        assert len(utils.Timer._start) == 3
+        utils.Timer.stop()
+        assert len(utils.Timer._start) == 2
+        utils.Timer.stop()
+        assert len(utils.Timer._start) == 1
+        utils.Timer.stop()
+        assert len(utils.Timer._start) == 0
+
     def test_object(self):
         start = time.time()
         utils.Timer.start()
@@ -214,3 +233,14 @@ class TestUrl():
         # Maybe this one should be cleaned ?
         assert url.slugify("This is a #&!:? test  ") == "This-is-a--test"
 
+    def test_format(self):
+        assert utils.Url.format("foo", False) == "foo.html"
+        assert utils.Url.format("foo/bar", False) == "foo/bar.html"
+        assert utils.Url.format("https://foo/bar/", False) == "https://foo/bar/.html"
+        assert utils.Url.format("foo", True) == "/foo/"
+        assert utils.Url.format("foo/bar", True) == "/foo/bar/"
+        assert utils.Url.format("https://foo/bar/", True) == "https://foo/bar/"
+
+    def test_from_path(self):
+        assert utils.Url.from_path("root", "text") == "root/text.html"
+        assert utils.Url.from_path("/path/folder/", "document") == "/path/folder/document.html"

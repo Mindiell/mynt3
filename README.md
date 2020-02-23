@@ -66,7 +66,7 @@ To make the html report:
 
 Then you can open *index.html* in *htmlcov/* directory in your browser.
 
-Actual coverage is 4%.
+Actual coverage is 5%.
 
 [docs]: http://mynt.uhnomoli.com/
 [docutils]: http://docutils.sourceforge.net/

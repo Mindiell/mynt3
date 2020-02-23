@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 
 
 class MyntException(Exception):
@@ -11,9 +11,6 @@ class MyntException(Exception):
     
     
     def __str__(self):
-        return self.__unicode__()
-
-    def __unicode__(self):
         message = '!! {0}'.format(self.message)
         
         for d in self.debug:
